@@ -6,6 +6,7 @@ import ie.viktoria.entities.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,9 +32,9 @@ public class NoteService implements INoteService{
     public List<Note> getAllNotes(){
         return noteDao.findAll();
     }
-//
+
 //    @Override
-//    public List<Note> getAllNotesFromStudent(Student studentId){
-//        return noteDao.findAllNotesFromStudent(studentId);
-//    }
+    public List<Note> getAllNotesFromStudent(int studentId){
+        return noteDao.findAllByStudentNote_StudentId(studentId);
+    }
 }

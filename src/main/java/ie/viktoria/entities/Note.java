@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * @author: Viktoria Cseke
@@ -22,16 +24,15 @@ public class Note {
     @GeneratedValue
     private int id;
     @Column(nullable = false)
-    private String date;
+    private LocalDate date;
     @Column(nullable = false)
     private String text;
-
 
     @ManyToOne
     @JoinColumn(nullable = false)
     private Student studentNote;
 
-    public Note(String date, String text, Student studentNote) {
+    public Note(LocalDate date, String text, Student studentNote) {
         this.date = date;
         this.text = text;
         this.studentNote = studentNote;

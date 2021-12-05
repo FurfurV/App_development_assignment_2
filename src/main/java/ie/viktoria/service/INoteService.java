@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface INoteService {
     List<Note> getAllNotes();
-//    List<Note> getAllNotesFromStudent(Student studentId);
+    List<Note> getAllNotesFromStudent(int studentId);
 
 //    Note save(Student studentId,String date, String text);
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}"/>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Student</th>
+        </tr>
+        <tr th:object="${student}">
+            <td th:text="*{studentId}"></td>
+            <td th:text="*{firstName}"></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

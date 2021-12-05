@@ -1,6 +1,8 @@
 package ie.viktoria.service;
 
 import ie.viktoria.dao.IStudentDao;
+import ie.viktoria.entities.Note;
+import ie.viktoria.entities.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,4 +25,13 @@ public class StudentService implements IStudentService{
 //        }
 //        return propertyRepository.getAllProperties();
 //    }
+
+    public List<Student> getAllStudents(){
+        return studentDao.findAll();
+    }
+
+    public Student getStudentById(int studentId){
+        return studentDao.findStudentByStudentId(studentId);
+    }
+
 }

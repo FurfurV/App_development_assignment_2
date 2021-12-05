@@ -11,7 +11,6 @@ import java.util.List;
  * @studentNumber: R00180598
  */
 public interface INoteDao extends JpaRepository<Note,Integer> {
-//    boolean existsByIdAndStudentNote(Student studentId);
 
-//    List<Note> findAllNotesFromStudent(Student studentId);
+    List<Note> findAllByStudentNote_StudentId(int studentId);
 }
