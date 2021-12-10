@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: links">
+</head>
+<body>
+    <header th:insert="fragments.html :: heading"></header>
+        <div  class="myContainer">
+            <form method="post" th:action="@{/newstudent}" th:object="${newStudentForm}" class="whiteRounded">
+                <h1 class="title">Sign up</h1>
+
+                <div class="form-group">
+                    <label for="studentId" th:text="#{newstudent.studentId}" ></label>
+                    <span th:if="${#fields.hasErrors('newStudentId')}"
+                          class="errors col-form-label text-danger" th:errors="*{newStudentId}"></span>
+                    <span th:if="${(duplicateStudentId)}"
+                          class="errors col-form-label text-danger" th:text="#{newstudent.alreadyexists}"></span>
+                    <input type="text" th:field="*{newStudentId}" id="studentId" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" th:text="#{newstudent.studentEmail}" ></label>
+                    <span th:if="${#fields.hasErrors('newStudentEmail')}"
+                          class="errors col-form-label text-danger" th:errors="*{newStudentEmail}"></span>
+                    <input type="text" th:field="*{newStudentEmail}" id="email" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="firstName" th:text="#{newstudent.studentFirstN}" ></label>
+                    <span th:if="${#fields.hasErrors('newStudentFirstName')}"
+                          class="errors col-form-label text-danger" th:errors="*{newStudentFirstName}"></span>
+                    <input type="text" th:field="*{newStudentFirstName}" id="firstName" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName" th:text="#{newstudent.studentLastN}" ></label>
+                    <span th:if="${#fields.hasErrors('newStudentLastName')}"
+                          class="errors col-form-label text-danger" th:errors="*{newStudentLastName}"></span>
+                    <input type="text" th:field="*{newStudentLastName}" id="lastName" class="form-control"/>
+                </div>
+
+                <br><input type="submit" class="btn btn-success" th:value="#{submit}"/>
+            </form>
+        </div>
+
+        <footer th:replace="fragments.html :: languages"></footer>
+</body>
+</html>

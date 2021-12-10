@@ -1,12 +1,15 @@
 package ie.viktoria;
 
+import ie.viktoria.entities.Note;
 import ie.viktoria.entities.Student;
+import ie.viktoria.service.INoteService;
 import ie.viktoria.service.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author: Viktoria Cseke
@@ -19,7 +22,7 @@ public class QueryController {
     IStudentService studentService;
 
     @GetMapping("/student/{studentId}")
-    public String showStudentByStudentId(@PathVariable("studentId") int studentId,
+    public String showStudentByStudentId(@PathVariable("studentId") String studentId,
                                          Model model){
         Student student = studentService.getStudentById(studentId);
         if(student == null){

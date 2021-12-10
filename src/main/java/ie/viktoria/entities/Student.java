@@ -20,8 +20,8 @@ import java.util.List;
 @Table(name="student")
 public class Student {
     @Id
-    @GeneratedValue
-    private int studentId;
+    @Column(unique = true,nullable = false)
+    private String studentId;
 
     @Column(nullable = false)
     private String email;
@@ -33,7 +33,8 @@ public class Student {
     @OneToMany(mappedBy = "studentNote", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Note> notes = new ArrayList<>();
 
-    public Student(String email, String firstName, String lastName) {
+    public Student(String studentId, String email, String firstName, String lastName) {
+        this.studentId = studentId;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;

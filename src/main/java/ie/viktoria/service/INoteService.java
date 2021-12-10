@@ -3,6 +3,7 @@ package ie.viktoria.service;
 import ie.viktoria.entities.Note;
 import ie.viktoria.entities.Student;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -11,7 +12,8 @@ import java.util.List;
  */
 public interface INoteService {
     List<Note> getAllNotes();
-    List<Note> getAllNotesFromStudent(int studentId);
-
-//    Note save(Student studentId,String date, String text);
+    List<Note> getAllNotesByOrder();
+    List<Note> getAllNotesFromStudent(String studentId);
+    Note save(int id,LocalDate date, String text, Student student);
+    Note getNoteById(int id);
 }

@@ -19,24 +19,22 @@ import java.time.format.DateTimeFormatter;
 @NoArgsConstructor
 @Entity
 public class Note {
-
     @Id
     @GeneratedValue
-    private int id;
+    private int noteId;
     @Column(nullable = false)
-    private LocalDate date;
+    private LocalDate noteDate;
     @Column(nullable = false)
-    private String text;
+    private String noteText;
 
     @ManyToOne
     @JoinColumn(nullable = false)
     private Student studentNote;
 
     public Note(LocalDate date, String text, Student studentNote) {
-        this.date = date;
-        this.text = text;
+        this.noteDate = date;
+        this.noteText = text;
         this.studentNote = studentNote;
     }
-
 
 }

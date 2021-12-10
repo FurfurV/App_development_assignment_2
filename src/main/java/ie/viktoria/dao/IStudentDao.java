@@ -10,8 +10,9 @@ import java.util.List;
  * @author: Viktoria Cseke
  * @studentNumber: R00180598
  */
-public interface IStudentDao extends JpaRepository<Student,Integer> {
+public interface IStudentDao extends JpaRepository<Student,String> {
 //    List<Note> findAllByStudentNote_StudentId(int studentId);
+    boolean existsByEmail(String email);
 
-    Student findStudentByStudentId(int studentId);
+    Student findStudentByStudentId(String studentId);
 }

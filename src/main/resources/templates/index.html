@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}"/>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: links">
 </head>
 <body>
-<h1>Welcome <span th:text="${myName}"></span></h1>
-<p th:text="${myEmail}"></p>
+    <header th:insert="fragments.html :: heading"></header>
 
+    <footer th:replace="fragments.html :: languages"></footer>
 </body>
 </html>

@@ -10,5 +10,6 @@ import java.util.List;
  */
 public interface IStudentService {
     List<Student> getAllStudents();
-    Student getStudentById(int studentId);
+    Student getStudentById(String studentId);
+    Student save(String id,String email, String firstName, String lastName);
 }

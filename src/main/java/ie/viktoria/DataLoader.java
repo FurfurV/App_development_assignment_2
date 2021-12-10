@@ -54,9 +54,9 @@ public class DataLoader implements CommandLineRunner {
         testUser2 = userDao.save(testUser2);
         System.out.println(testUser2);
 
-        Student student = new Student("student@email.com","dummy","test");
+        Student student = new Student("R00123456","student@email.com","dummy","test");
         studentDao.save(student);
-        Student student2 = new Student("student2@email.com","dummyTwo","test2");
+        Student student2 = new Student("R00124566","student2@email.com","dummyTwo","test2");
         studentDao.save(student2);
 
         System.out.println(userDao.count());
@@ -67,9 +67,9 @@ public class DataLoader implements CommandLineRunner {
         Note good2 = new Note(LocalDate.of(2021,10,9),"blahblahbla", student);
         noteDao.save(good);
         noteDao.save(good2);
-
+//
         noteService.getAllNotes().forEach(System.out::println);
-
+//
         noteService.getAllNotesFromStudent(student.getStudentId()).forEach(System.out::println);
     }
 }

@@ -6,6 +6,7 @@ import ie.viktoria.entities.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,22 +20,32 @@ public class NoteService implements INoteService{
     @Autowired
     INoteDao noteDao;
 
-//    @Override
-//    public Note save(Student studentId,String date, String text){
-//        if (noteDao.existsByIdAndStudentNote(studentId)){
+    @Override
+    public Note save(int id, LocalDate date, String text,Student student){
+//        if (noteDao.existsByStudentNote(student)){
 //            return null;
 //        }
-//        Note newNote = new Note(date,text,studentId);
-//        return noteDao.save(newNote);
-//    }
+        Note newNote = new Note(id, date,text,student);
+        return noteDao.save(newNote);
+    }
 
-//    @Override
+    @Override
     public List<Note> getAllNotes(){
         return noteDao.findAll();
     }
 
-//    @Override
-    public List<Note> getAllNotesFromStudent(int studentId){
+    @Override
+    public List<Note> getAllNotesByOrder(){
+        return noteDao.findAll();
+    }
+
+    @Override
+    public List<Note> getAllNotesFromStudent(String studentId){
         return noteDao.findAllByStudentNote_StudentId(studentId);
+    }
+
+    @Override
+    public Note getNoteById(int id){
+        return noteDao.findByNoteId(id);
     }
 }
