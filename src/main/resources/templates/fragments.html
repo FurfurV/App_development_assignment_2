@@ -1,23 +1,42 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:fragment="links">
     <meta charset="UTF-8">
     <title>Assignment 2</title>
-    <link rel="stylesheet" th:href="@{/flag-icon.css}"/>
-    <link rel="stylesheet" th:href="@{/styles.css}"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 </head>
 <body>
 <div th:fragment="heading">
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
         <ul class="navbar-nav">
+
             <li class="nav-item">
                 <a class="nav-link" th:text="#{fragments.home}" th:href="@{/}">Home></a>
             </li>
+
             <li class="nav-item">
-                <a class="nav-link" th:text="#{fragments.students}" th:href="@{/students}">Students></a>
+                <a sec:authorize="isAuthenticated()" class="nav-link" th:text="#{fragments.students}" th:href="@{/students}">Students></a>
             </li>
+
+            <li class="nav-item">
+                <a sec:authorize="hasRole('ROLE_MENTOR')" class="nav-link" th:text="#{fragments.newnote}" th:href="@{/newnote}">Add new note></a>
+            </li>
+
+            <li class="nav-item">
+                <a sec:authorize="hasRole('ROLE_MENTOR')" class="nav-link" th:text="#{fragments.newstudent}" th:href="@{/newstudent}">Add new Student></a>
+            </li>
+
+            <li class="logout-login">
+                <a sec:authorize="isAuthenticated()" class="nav-link" th:text="#{fragments.logout}" th:href="@{/logout}">Log out</a>
+            </li>
+            <li class="logout-login">
+                <a sec:authorize="!isAuthenticated()" class="nav-link" th:text="#{fragments.login}" th:href="@{/login}">Log in</a>
+            </li>
+
         </ul>
+
     </nav>
 
 

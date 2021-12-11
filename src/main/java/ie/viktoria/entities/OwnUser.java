@@ -15,7 +15,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class User {
+public class OwnUser {
     @Id
     @Column(nullable = false, unique = true)
     private String email;

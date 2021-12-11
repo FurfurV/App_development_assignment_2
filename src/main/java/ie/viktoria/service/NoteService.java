@@ -21,11 +21,11 @@ public class NoteService implements INoteService{
     INoteDao noteDao;
 
     @Override
-    public Note save(int id, LocalDate date, String text,Student student){
+    public Note save( LocalDate date, String text,Student student){
 //        if (noteDao.existsByStudentNote(student)){
 //            return null;
 //        }
-        Note newNote = new Note(id, date,text,student);
+        Note newNote = new Note (date,text,student);
         return noteDao.save(newNote);
     }
 

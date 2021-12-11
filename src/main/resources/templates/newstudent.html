@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:insert="fragments.html :: links">
 </head>
 <body>
     <header th:insert="fragments.html :: heading"></header>
         <div  class="myContainer">
             <form method="post" th:action="@{/newstudent}" th:object="${newStudentForm}" class="whiteRounded">
-                <h1 class="title">Sign up</h1>
+                <h1 class="title">Add new student</h1>
 
                 <div class="form-group">
                     <label for="studentId" th:text="#{newstudent.studentId}" ></label>

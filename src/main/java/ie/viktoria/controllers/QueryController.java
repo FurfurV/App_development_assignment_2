@@ -1,4 +1,4 @@
-package ie.viktoria;
+package ie.viktoria.controllers;
 
 import ie.viktoria.entities.Note;
 import ie.viktoria.entities.Student;
@@ -21,6 +21,9 @@ public class QueryController {
     @Autowired
     IStudentService studentService;
 
+    @Autowired
+    INoteService noteService;
+
     @GetMapping("/student/{studentId}")
     public String showStudentByStudentId(@PathVariable("studentId") String studentId,
                                          Model model){
@@ -31,6 +34,7 @@ public class QueryController {
         }
 
         model.addAttribute("student",student);
+        model.addAttribute("notes", noteService.getAllNotesFromStudent(studentId));
         return "student";
     }
 

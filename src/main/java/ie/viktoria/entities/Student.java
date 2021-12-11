@@ -1,5 +1,6 @@
 package ie.viktoria.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,6 +32,7 @@ public class Student {
     private String lastName;
 
     @OneToMany(mappedBy = "studentNote", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Note> notes = new ArrayList<>();
 
     public Student(String studentId, String email, String firstName, String lastName) {

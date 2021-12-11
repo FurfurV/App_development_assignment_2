@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:insert="fragments.html :: links">
 </head>
 <body>
@@ -10,7 +11,7 @@
                 <h1>
                     Notes in <span th:text="${student.firstName}"></span>
                 </h1>
-                <table>
+                <table class="whiteRoundedSmall">
                     <tr>
                         <th>Id</th>
                         <th>Note</th>

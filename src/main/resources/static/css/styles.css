@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: black;
 }
 
 html, body {
@@ -10,8 +11,9 @@ html, body {
     flex-direction: column;
 }
 body {
-    background: linear-gradient(344deg, rgba(87,198,58,1) 41%, rgba(255,250,144,1) 100%);
+    /*background: linear-gradient(344deg, rgb(224, 9, 9) 41%, rgb(218, 214, 40) 100%);*/
     font-family: "lato", sans-serif;
+    background-image: url(../img/bow.svg);
 }
 
 footer{
@@ -19,7 +21,7 @@ footer{
     left: 0;
     bottom: 0;
     width: 100%;
-    padding: 30px;
+    padding: 23px;
     background-color: rgba(255, 255, 255,1);
 }
 
@@ -44,6 +46,14 @@ h1 {
 .whiteRounded {
     background-color: white;
     width: 600px;
+    border-radius: 8px;
+    padding: 20px 40px;
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+}
+
+.whiteRoundedSmall {
+    background-color: white;
+    width: 500px;
     border-radius: 8px;
     padding: 20px 40px;
     box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
@@ -78,4 +88,45 @@ th {
     color:#fff;
     text-transform: uppercase;
     letter-spacing: 0.03em;
+}
+.logout-login{
+    position: absolute;
+    right: 120px;
+    top: 5px;
+    color: black;
+    border-radius: 20px;
+    border:2px solid green;
+}
+.navbar-nav li a:hover {
+    background: #cbefba;
+    height: auto;
+    margin: 0;
+    padding: 8px;
+    color:#000;
+    border-radius: 20px;
+}
+
+.flag-icon-background {
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+.flag-icon {
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    position: relative;
+    display: inline-block;
+    width: 1.33333333em;
+    line-height: 1em;
+}
+.flag-icon:before {
+    content: '\00a0';
+}
+
+.flag-icon-hu {
+    background-image: url(../img/hu.svg);
+}
+.flag-icon-ie {
+    background-image: url(../img/ie.svg);
 }

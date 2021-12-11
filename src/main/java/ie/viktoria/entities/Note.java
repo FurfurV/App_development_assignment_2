@@ -3,6 +3,7 @@ package ie.viktoria.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
@@ -21,6 +22,7 @@ import java.time.format.DateTimeFormatter;
 public class Note {
     @Id
     @GeneratedValue
+    @JsonIgnore
     private int noteId;
     @Column(nullable = false)
     private LocalDate noteDate;
@@ -29,6 +31,7 @@ public class Note {
 
     @ManyToOne
     @JoinColumn(nullable = false)
+    @JsonIgnore
     private Student studentNote;
 
     public Note(LocalDate date, String text, Student studentNote) {

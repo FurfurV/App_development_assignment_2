@@ -2,28 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:insert="fragments.html :: links">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-<div>
     <header th:insert="fragments.html :: heading"></header>
     <div class="myContainer">
         <div class="whiteRounded">
-    <table class="whiteRoundedSmall">
-
-        <tr>
-            <th>Id</th>
-            <th>Student</th>
-        </tr>
-        <tr th:each="student, iterationCount: ${students}" th:class="${iterationCount.odd}? 'odd'" th:object="${student}">
-            <td th:text="*{studentId}"></td>
-            <td><a th:text="*{firstName}" th:href="'/student/' + *{studentId}"></a></td>
-        </tr>
-
-    </table>
+            <h1 class="title">
+                <span th:text="#{403.message}"></span><span>😟</span>
+            </h1>
         </div>
     </div>
-</div>
-
     <footer th:replace="fragments.html :: languages"></footer>
 </body>
 </html>

@@ -14,6 +14,6 @@ public interface INoteService {
     List<Note> getAllNotes();
     List<Note> getAllNotesByOrder();
     List<Note> getAllNotesFromStudent(String studentId);
-    Note save(int id,LocalDate date, String text, Student student);
+    Note save(LocalDate date, String text, Student student);
     Note getNoteById(int id);
 }

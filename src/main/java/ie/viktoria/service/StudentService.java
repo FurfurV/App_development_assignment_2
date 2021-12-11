@@ -30,6 +30,14 @@ public class StudentService implements IStudentService{
     }
 
     @Override
+    public Student shortSave(Student student){
+        if (studentDao.existsById(student.getStudentId())){
+            return null;
+        }
+        return studentDao.save(student);
+    }
+
+    @Override
     public List<Student> getAllStudents(){
         return studentDao.findAll();
     }
@@ -37,6 +45,16 @@ public class StudentService implements IStudentService{
     @Override
     public Student getStudentById(String studentId){
         return studentDao.findStudentByStudentId(studentId);
+    }
+
+    @Override
+    @Transactional
+    public boolean delete(String studentId){
+        if(studentDao.deleteByStudentId(studentId) == 1){
+            return true;
+        }
+        System.out.println("no");
+        return false;
     }
 
 }

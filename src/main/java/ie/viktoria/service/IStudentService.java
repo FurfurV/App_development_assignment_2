@@ -12,4 +12,8 @@ public interface IStudentService {
     List<Student> getAllStudents();
     Student getStudentById(String studentId);
     Student save(String id,String email, String firstName, String lastName);
+    Student shortSave(Student student);
+    boolean delete(String studentId);
+
+
 }

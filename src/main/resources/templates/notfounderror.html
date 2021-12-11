@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:insert="fragments.html :: links">
 </head>
 <body>
@@ -7,7 +8,7 @@
     <div  class="myContainer">
         <h1>Error</h1>
 
-        <h2 th:if="${studentId}">The student with id <span th:text="${studentId}"></span> does not exist.</h2>
+        <h2 th:if="${studentId}">The student with id <span th:text="${studentId}"></span> does not exist. 😥</h2>
 <!--        <h2 th:if="${id}">The student with id <span th:text="${id}"></span> does not exist.</h2>-->
     </div>
     <footer th:replace="fragments.html :: languages"></footer>

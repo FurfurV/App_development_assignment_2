@@ -49,13 +49,14 @@ public class NewNoteController {
         }
 
         Student student = studentService.getStudentById(newNoteForm.getStudentId());
-        Note newNote = noteService.save(newNoteForm.getNewNoteId(), newNoteForm.getDate(), newNoteForm.getNewNoteText(), student);
+        Note newNote = noteService.save( newNoteForm.getDate(), newNoteForm.getNewNoteText(), student);
 
         if ( newNote == null){
             redirectAttributes.addFlashAttribute("duplicateStudent", student.getStudentId());
             return "redirect:newnote";
         }
 
-        return "newnote";
+        redirectAttributes.addFlashAttribute("successful", student.getStudentId());
+        return "redirect:newnote";
     }
 }
