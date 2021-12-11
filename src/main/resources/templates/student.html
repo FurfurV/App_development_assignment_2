@@ -9,18 +9,27 @@
         <div class="myContainer">
             <div class="whiteRounded">
                 <h1>
-                    Notes in <span th:text="${student.firstName}"></span>
+                    Notes in <span th:text="${student.studentId}"></span>
                 </h1>
+                <ul class="studentList">
+                    <li><span th:text="#{mystudent.fname}"></span>  <span th:text="${student.firstName}"></span></li>
+                    <li><span th:text="#{mystudent.lname}"></span>  <span th:text="${student.lastName}"></span></li>
+                    <li><span th:text="#{mystudent.email}"></span>  <span th:text="${student.email}"></span></li>
+                </ul>
                 <table class="whiteRoundedSmall">
                     <tr>
                         <th>Id</th>
+                        <th>Date</th>
                         <th>Note</th>
                     </tr>
                     <tr th:each="note,iterationCount : ${notes}" th:class="${iterationCount.odd}? 'odd'" th:object="${note}">
                         <td th:text="*{noteId}"></td>
+                        <td th:text="*{noteDate}"></td>
                         <td th:text="*{noteText}"></td>
                     </tr>
                 </table>
+
+                <span th:if="${student.getNotes().size() == 0}" th:text="#{mystudent.nonotes}"></span>
             </div>
         </div>
     </div>

@@ -5,25 +5,77 @@
 </head>
 <body>
 <div>
-    <header th:insert="fragments.html :: heading"></header>
+    <div id="header">>
+        <header th:insert="fragments.html :: heading"></header>
+    </div>
+
     <div class="myContainer">
         <div class="whiteRounded">
-    <table class="whiteRoundedSmall">
 
+    <table class="whiteRoundedSmall">
+        <h1>
+            <span th:text="#{students.all}"></span>
+        </h1>
         <tr>
-            <th>Id</th>
-            <th>Student</th>
+            <th th:text="#{students.id}"></th>
+            <th th:text="#{students.email}"></th>
+            <th th:text="#{students.fname}"></th>
+            <th th:text="#{students.lname}"></th>
         </tr>
         <tr th:each="student, iterationCount: ${students}" th:class="${iterationCount.odd}? 'odd'" th:object="${student}">
             <td th:text="*{studentId}"></td>
+            <td th:text="*{email}"></td>
             <td><a th:text="*{firstName}" th:href="'/student/' + *{studentId}"></a></td>
+            <td><a th:text="*{lastName}" th:href="'/student/' + *{studentId}"></a></td>
         </tr>
-
     </table>
+
+    <table class="whiteRoundedSmall">
+        <h1>
+            <span th:text="#{students.more4}"></span>
+        </h1>
+        <tr>
+            <th th:text="#{students.id}"></th>
+            <th th:text="#{students.email}"></th>
+            <th th:text="#{students.fname}"></th>
+            <th th:text="#{students.lname}"></th>
+        </tr>
+        <tr th:each="student, iterationCount: ${students}" th:class="${iterationCount.odd}? 'odd'" th:object="${student}">
+            <div th:if="${student.getNotes().size() > 4}">
+                <td th:text="*{studentId}"></td>
+                <td th:text="*{email}"></td>
+                <td><a th:text="*{firstName}" th:href="'/student/' + *{studentId}"></a></td>
+                <td><a th:text="*{lastName}" th:href="'/student/' + *{studentId}"></a></td>
+            </div>
+        </tr>
+    </table>
+
+    <table class="whiteRoundedSmall" sec:authorize="hasRole('ROLE_MENTOR')">
+        <h1>
+            <span th:text="#{students.nonotes}"></span>
+        </h1>
+        <tr>
+            <th th:text="#{students.id}"></th>
+            <th th:text="#{students.email}"></th>
+            <th th:text="#{students.fname}"></th>
+            <th th:text="#{students.lname}"></th>
+        </tr>
+        <tr th:each="student, iterationCount: ${students}" th:class="${iterationCount.odd}? 'odd'" th:object="${student}">
+            <div th:if="${student.getNotes().size() == 0}">
+                <td th:text="*{studentId}"></td>
+                <td th:text="*{email}"></td>
+                <td><a th:text="*{firstName}" th:href="'/student/' + *{studentId}"></a></td>
+                <td><a th:text="*{lastName}" th:href="'/student/' + *{studentId}"></a></td>
+            </div>
+        </tr>
+    </table>
+
         </div>
     </div>
 </div>
 
-    <footer th:replace="fragments.html :: languages"></footer>
+        <div id="footer">
+            <footer th:replace="fragments.html :: languages"></footer>
+        </div>
 </body>
 </html>

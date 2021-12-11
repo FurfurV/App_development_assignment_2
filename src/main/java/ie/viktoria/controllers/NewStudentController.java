@@ -26,6 +26,7 @@ public class NewStudentController {
     @GetMapping("/newstudent")
     public String addAStudent(Model model){
         model.addAttribute("newStudentForm", new NewStudentForm());
+        model.addAttribute("students", studentService.getAllStudents());
         return "newstudent";
     }
 

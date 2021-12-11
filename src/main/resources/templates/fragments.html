@@ -34,12 +34,8 @@
             <li class="logout-login">
                 <a sec:authorize="!isAuthenticated()" class="nav-link" th:text="#{fragments.login}" th:href="@{/login}">Log in</a>
             </li>
-
         </ul>
-
     </nav>
-
-
 </div>
 
 <footer th:fragment="languages" th:with="currentUrl=(${@thymeleafBeans.removeLangFromUrl()})"

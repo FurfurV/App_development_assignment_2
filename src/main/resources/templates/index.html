@@ -10,19 +10,23 @@
             <h1 class="title">
                 <span th:text="#{index.search}"></span>
             </h1>
-
-            <form class="form-inline justify-content-center">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <form method="post" th:action="@{/}" th:object="${searchStudentForm}" class="whiteRoundedSmall">
+                <div class="form-group">
+                    <label th:text="#{searchstudent.studentId}"></label>
+                    <span th:if="${(notfoundid)}"
+                          class="errors col-form-label text-danger" th:text="#{searchstudent.notfoundid}"></span>
+                    <input type="text" th:field="*{searchStudentId}" id="studentId" class="form-control"/>
+                    <br><input type="submit" class="btn btn-success" th:value="#{submit}"/>
+                </div>
             </form>
         </div>
 
-        <div sec:authorize="!isAuthenticated()" class="whiteRounded">
+    <div sec:authorize="!isAuthenticated()" class="whiteRounded">
             <h1 class="title">
                 <span th:text="#{index.welcome}"></span>
             </h1>
         </div>
     </div>
-    <footer th:replace="fragments.html :: languages"></footer>
+        <footer th:replace="fragments.html :: languages"></footer>
 </body>
 </html>

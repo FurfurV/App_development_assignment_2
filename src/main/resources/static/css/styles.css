@@ -6,14 +6,16 @@
 }
 
 html, body {
-    min-height: 100vh;
-    display: flex;
+    min-height: 400px;
+    margin-bottom: 100px;
+    clear: both;
     flex-direction: column;
 }
 body {
     /*background: linear-gradient(344deg, rgb(224, 9, 9) 41%, rgb(218, 214, 40) 100%);*/
     font-family: "lato", sans-serif;
     background-image: url(../img/bow.svg);
+    margin-bottom: 200px;
 }
 
 footer{
@@ -21,8 +23,24 @@ footer{
     left: 0;
     bottom: 0;
     width: 100%;
+    margin-top: 60px;
     padding: 23px;
     background-color: rgba(255, 255, 255,1);
+}
+
+header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+#footer{
+    margin-bottom: 50px;
+}
+
+#header{
+    margin-bottom: 50px;
 }
 
 .title {
@@ -83,8 +101,13 @@ h1 {
     background-color:beige;
 }
 
+.studentList{
+    font-family: Courier, monospace ;
+    font-size: 20px;
+}
+
 th {
-    background-color: #6b81ab;
+    background-color: #1da133;
     color:#fff;
     text-transform: uppercase;
     letter-spacing: 0.03em;

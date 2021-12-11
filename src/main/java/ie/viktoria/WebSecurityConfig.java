@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.authorizeHttpRequests()
                 .antMatchers("/newnote/**", "/newstudent/**").hasRole("MENTOR")
-                .antMatchers("/students", "/student/**").hasAnyRole("REVIEWER", "MENTOR")
+                .antMatchers("/students", "/student/**","/searchstudent/**").hasAnyRole("REVIEWER", "MENTOR")
                 .antMatchers("/api/**", "/myapi/**").hasRole("API")
                 .antMatchers("/css/**", "/img/**",
                         "/webjars/bootstrap/**", "/",
