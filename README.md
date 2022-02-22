@@ -1,3 +1,8 @@
+
+# Finished assignment screenshots
+![students](https://user-images.githubusercontent.com/44726497/155116748-5e3509a6-bdd3-4d16-a4f2-3c0a6f8d993d.PNG)
+![note](https://user-images.githubusercontent.com/44726497/155116933-51763979-a331-4e58-8c90-6b20604c8b85.PNG)
+
 # Assignment 2 Brief
 
 I am part of MTU's REACH programme which aims to establish meaningful 
@@ -31,7 +36,3 @@ This system should only work for one mentor at present - me - so don't worry abo
 creating complicated relationships here. The database will consist of a table for users 
 (me plus some reviewers with read-only access), a table of students/mentees and a 
 table of notes. You must establish relationships between the students and their notes. 
-
-![students](https://user-images.githubusercontent.com/44726497/155116748-5e3509a6-bdd3-4d16-a4f2-3c0a6f8d993d.PNG)
-![note](https://user-images.githubusercontent.com/44726497/155116933-51763979-a331-4e58-8c90-6b20604c8b85.PNG)
-
